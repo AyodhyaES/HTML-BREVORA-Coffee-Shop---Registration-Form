@@ -8,45 +8,61 @@
 
 <style>
 
-body{
+*{
     margin:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
     url("coffee.jpg");
     background-size:cover;
     background-position:center;
+    background-attachment:fixed;
 }
 
 .container{
-    width:750px;
+    width:90%;
+    max-width:800px;
     margin:40px auto;
     background:white;
+    padding:35px;
     border-radius:15px;
-    padding:30px;
-    box-shadow:0 0 20px rgba(0,0,0,0.5);
+    box-shadow:0 0 20px rgba(0,0,0,.4);
+}
+
+.logo{
+    width:120px;
+    display:block;
+    margin:auto;
 }
 
 h1{
     text-align:center;
     color:#6F4E37;
+    margin-top:15px;
 }
 
 p{
     text-align:center;
     color:#666;
+    margin-bottom:25px;
 }
 
 fieldset{
     border:2px solid #6F4E37;
-    margin-bottom:20px;
-    padding:20px;
     border-radius:10px;
+    padding:20px;
+    margin-bottom:20px;
 }
 
 legend{
-    color:#6F4E37;
     font-size:20px;
+    color:#6F4E37;
     font-weight:bold;
+    padding:0 10px;
 }
 
 .row{
@@ -61,19 +77,23 @@ legend{
 
 label{
     display:block;
-    margin-bottom:5px;
+    margin-bottom:6px;
     font-weight:bold;
+    color:#333;
 }
 
-input,
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=date],
 select,
 textarea{
     width:100%;
     padding:10px;
-    border:1px solid #999;
+    border:1px solid #bbb;
     border-radius:6px;
     font-size:15px;
-    box-sizing:border-box;
 }
 
 textarea{
@@ -88,33 +108,86 @@ textarea{
 .radio-group label,
 .checkbox-group label{
     display:inline;
-    margin-right:15px;
+    font-weight:normal;
+    margin-right:20px;
+}
+
+input[type=radio],
+input[type=checkbox]{
+    width:auto;
+    margin-right:5px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
 }
 
 button{
-    width:100%;
-    background:#6F4E37;
-    color:white;
+    flex:1;
     padding:15px;
-    font-size:18px;
     border:none;
     border-radius:8px;
+    font-size:17px;
     cursor:pointer;
+    transition:.3s;
 }
 
-button:hover{
+.reset{
+    background:#999;
+    color:white;
+}
+
+.reset:hover{
+    background:#666;
+}
+
+.submit{
+    background:#6F4E37;
+    color:white;
+}
+
+.submit:hover{
     background:#4E342E;
+}
+
+.home{
+    display:block;
+    width:200px;
+    margin:25px auto 0;
+    text-align:center;
+    background:#6F4E37;
+    color:white;
+    padding:12px;
+    border-radius:30px;
+    text-decoration:none;
+}
+
+.home:hover{
+    background:#4E342E;
+}
+
+@media(max-width:700px){
+
+.row{
+    flex-direction:column;
+}
+
 }
 
 </style>
 
 </head>
+
 <body>
 
 <div class="container">
 
+<img src="img\logo.png" class="logo" alt="BREVORA Logo">
+
 <h1>BREVORA Coffee Shop</h1>
-<p>Create Your Customer Account</p>
+
+<p>Create your customer account and enjoy premium coffee rewards.</p>
 
 <form>
 
@@ -126,12 +199,12 @@ button:hover{
 
 <div class="column">
 <label>First Name</label>
-<input type="text" required>
+<input type="text" placeholder="Enter first name" required>
 </div>
 
 <div class="column">
 <label>Last Name</label>
-<input type="text" required>
+<input type="text" placeholder="Enter last name" required>
 </div>
 
 </div>
@@ -140,12 +213,12 @@ button:hover{
 
 <div class="column">
 <label>Email</label>
-<input type="email" required>
+<input type="email" placeholder="example@gmail.com" required>
 </div>
 
 <div class="column">
 <label>Phone Number</label>
-<input type="tel" required>
+<input type="tel" placeholder="+94 77 123 4567" required>
 </div>
 
 </div>
@@ -158,10 +231,11 @@ button:hover{
 </div>
 
 <div class="column">
+
 <label>Gender</label>
 
 <select>
-<option>Select</option>
+<option>Select Gender</option>
 <option>Male</option>
 <option>Female</option>
 <option>Other</option>
@@ -175,42 +249,49 @@ button:hover{
 
 <fieldset>
 
-<legend>Account Information</legend>
+<legend>Account Details</legend>
 
 <label>Username</label>
-<input type="text" placeholder="Username">
+<input type="text" placeholder="Choose a username" required>
 
 <br><br>
 
 <label>Password</label>
-<input type="password" placeholder="Password">
+<input type="password" placeholder="Create password" required>
 
 <br><br>
 
 <label>Confirm Password</label>
-<input type="password" placeholder="Confirm Password">
+<input type="password" placeholder="Confirm password" required>
 
 </fieldset>
 
 <fieldset>
 
-<legend>Address</legend>
+<legend>Address Information</legend>
 
 <label>Street Address</label>
-<textarea rows="3"></textarea>
 
-<br>
+<textarea rows="4" placeholder="Enter your address"></textarea>
+
+<br><br>
 
 <div class="row">
 
 <div class="column">
+
 <label>City</label>
+
 <input type="text">
+
 </div>
 
 <div class="column">
+
 <label>District</label>
+
 <input type="text">
+
 </div>
 
 </div>
@@ -218,18 +299,27 @@ button:hover{
 <div class="row">
 
 <div class="column">
+
 <label>Postal Code</label>
+
 <input type="text">
+
 </div>
 
 <div class="column">
+
 <label>Country</label>
 
 <select>
+
 <option>Sri Lanka</option>
+
 <option>India</option>
+
 <option>Australia</option>
+
 <option>United Kingdom</option>
+
 </select>
 
 </div>
@@ -242,15 +332,22 @@ button:hover{
 
 <legend>Coffee Preferences</legend>
 
-<label>Favorite Coffee</label>
+<label>Favourite Coffee</label>
 
 <select>
 
 <option>Espresso</option>
-<option>Cappuccino</option>
-<option>Latte</option>
-<option>Mocha</option>
+
 <option>Americano</option>
+
+<option>Cappuccino</option>
+
+<option>Latte</option>
+
+<option>Mocha</option>
+
+<option>Macchiato</option>
+
 <option>Cold Brew</option>
 
 </select>
@@ -261,13 +358,17 @@ button:hover{
 
 <div class="radio-group">
 
-<input type="radio" name="milk"> Regular
+<input type="radio" name="milk" id="regular">
+<label for="regular">Regular</label>
 
-<input type="radio" name="milk"> Soy
+<input type="radio" name="milk" id="soy">
+<label for="soy">Soy</label>
 
-<input type="radio" name="milk"> Almond
+<input type="radio" name="milk" id="almond">
+<label for="almond">Almond</label>
 
-<input type="radio" name="milk"> Oat
+<input type="radio" name="milk" id="oat">
+<label for="oat">Oat</label>
 
 </div>
 
@@ -277,15 +378,20 @@ button:hover{
 
 <div class="checkbox-group">
 
-<input type="checkbox"> Coffee Beans
+<input type="checkbox" id="beans">
+<label for="beans">Coffee Beans</label>
 
-<input type="checkbox"> Bakery
+<input type="checkbox" id="desserts">
+<label for="desserts">Desserts</label>
 
-<input type="checkbox"> Desserts
+<input type="checkbox" id="bakery">
+<label for="bakery">Bakery</label>
 
-<input type="checkbox"> Merchandise
+<input type="checkbox" id="gift">
+<label for="gift">Gift Cards</label>
 
-<input type="checkbox"> Loyalty Program
+<input type="checkbox" id="loyalty">
+<label for="loyalty">Loyalty Program</label>
 
 </div>
 
@@ -295,26 +401,38 @@ button:hover{
 
 <legend>Newsletter</legend>
 
-<input type="checkbox">
-Receive promotions, discounts and new coffee updates via email.
+<input type="checkbox" id="news">
+
+<label for="news">
+Receive promotions, discounts and coffee news by email.
+</label>
 
 </fieldset>
 
 <fieldset>
 
-<input type="checkbox" required>
+<input type="checkbox" id="terms" required>
 
+<label for="terms">
 I agree to the Terms & Conditions and Privacy Policy.
+</label>
 
 </fieldset>
 
-<button type="submit">
-Create My Account
-</button>
+<div class="buttons">
+
+<button type="reset" class="reset">Clear Form</button>
+
+<button type="submit" class="submit">Create Account</button>
+
+</div>
 
 </form>
+
+<a href="index.html" class="home">← Back to Home</a>
 
 </div>
 
 </body>
 </html>
+
